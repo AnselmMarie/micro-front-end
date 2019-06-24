@@ -8,7 +8,7 @@ const mode = 'development';
 module.exports = {
     mode: mode,
     devtool: 'inline-source-map',
-    entry: './app/main.js',
+    entry: './app/screens/app/app.js',
     devServer: {
         contentBase: './dist',
         compress: false,
