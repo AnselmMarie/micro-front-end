@@ -1,3 +1,26 @@
-import React from "react";
+/* Node Modules */
+import React, {Component} from "react";
+/* Components */
+import Header from '../../components/header';
 
-export default () => <h1 data-testid="Homepage">Hello World</h1>;
+/**
+ * @class Homepage
+ * @desc contains that renders the homepage
+ * @author Anselm Marie
+ * @return {JSX.element}
+ */
+class Homepage extends Component {
+
+    render() {
+        return (
+            <>
+                <Header />
+                <h1 data-testid="Homepage">Hello World</h1>
+            </>
+        )
+    }
+
+}
+
+
+export default Homepage;
