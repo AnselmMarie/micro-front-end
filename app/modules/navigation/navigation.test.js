@@ -30,8 +30,8 @@ function renderWithRouter(
 describe('<Naivgation />', () => {
 
     test('Enter the homepage route', () => {
-        const { getByTestId } = renderWithRouter(<Navigation />);
-        expect(getByTestId('Homepage')).toBeTruthy();
+        const wrapper = renderWithRouter(<Navigation />);
+        expect(wrapper).toBeTruthy();
     });
 
     test('Enter the Order route', () => {

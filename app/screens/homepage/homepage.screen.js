@@ -2,36 +2,7 @@
 import React, {Component} from "react";
 /* Components */
 import Header from '../../components/header';
-
-const videoGames = [
-    {
-        id: '5345-324552345-5234532',
-        name: 'Final Fantasy 7 Remake',
-        price: '59.99',
-        details: 'Awesome Man',
-        thumbnail: '',
-        screenshots: [
-
-        ],
-        review: '',
-        purchaseReady: false,
-        preOrder: true,
-    },
-    {
-        id: '6547-324552345-8239532',
-        name: 'Cyperpunk 2077',
-        price: '59.99',
-        details: 'Awesome Man',
-        thumbnail: '',
-        screenshots: [
-
-        ],
-        review: '',
-        purchaseReady: false,
-        preOrder: true,
-    }
-
-];
+import videoGames from '../../api/video.game/video.games.json';
 
 /**
  * @class Homepage
@@ -65,20 +36,21 @@ class Homepage extends Component {
      * @return {JSX.element}
      */
     render() {
+
         return (
             <>
 
                 <Header />
 
-                <div className="container-fluid video-game-container">
+                {videoGames && videoGames.length !== 0 &&
+                    <div data-testid="video-games-loaded" className="container-fluid video-game-container">
+                        {videoGames.map((el) => this.renderItem(el))}
+                    </div>}
 
-                    {videoGames && videoGames.length !== 0 &&
-                        videoGames.map((el) => this.renderItem(el))}
-
-                    {!videoGames || videoGames && videoGames.length === 0 &&
-                        <span>No Content Exist</span>}
-
-                </div>
+                {!videoGames || videoGames && videoGames.length === 0 &&
+                    <div data-testid="no-content" className="container-fluid no-content">
+                        <span>No Content Exist</span>
+                    </div>}
 
             </>
         )

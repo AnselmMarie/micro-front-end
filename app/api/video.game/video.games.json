@@ -1,0 +1,24 @@
+[
+  {
+    "id": "5345-324552345-5234532",
+    "name": "Final Fantasy 7 Remake",
+    "price": "59.99",
+    "details": "Awesome Man",
+    "thumbnail": "",
+    "screenshots": [],
+    "review": "",
+    "purchaseReady": false,
+    "preOrder": true
+  },
+  {
+    "id": "6547-324552345-8239532",
+    "name": "Cyperpunk 2077",
+    "price": "59.99",
+    "details": "Awesome Man",
+    "thumbnail": "",
+    "screenshots": [],
+    "review": "",
+    "purchaseReady": false,
+    "preOrder": true
+  }
+]
