@@ -5,11 +5,11 @@ afterEach(cleanup);
 
 describe('<Homepage />', () => {
 
-    test('Homepage with Content', () => {
+    test('Homepage with Video Game Content', () => {
 
     });
 
-    test('Homepage without Content', () => {
+    test('Homepage without Video Game Content', () => {
 
     });
 

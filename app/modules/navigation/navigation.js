@@ -14,9 +14,9 @@ import NoMatch from '../../screens/no.match';
 export default () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Homepage}/>
+            <Route exact path="/" render={() => <Homepage/>}/>
             {/*<Route exact path="/portfolio/:company/:project" component={Portfolio}/>*/}
-            <Route exact component={NoMatch} />
+            <Route exact render={() => <NoMatch/>} />
         </Switch>
     </BrowserRouter>
 );

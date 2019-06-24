@@ -11,9 +11,15 @@ import Cart from '../cart';
  */
 export default () => {
     return(
-        <header>
-            <h1>Video Games</h1>
-            <Cart />
+        <header className="main-header container-fluid">
+            <div className="row">
+                <div className="col-sm">
+                    <h1>Video Games</h1>
+                </div>
+                <div className="col-sm-2">
+                    <Cart />
+                </div>
+            </div>
         </header>
     )
 }

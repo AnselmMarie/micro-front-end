@@ -2,7 +2,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const path = require('path');
+
 const mode = 'development';
 
 module.exports = {
@@ -19,7 +21,11 @@ module.exports = {
     },
     module: {
         rules: [
-            {test : /\.(js)$/, use:'babel-loader'},
+            {
+                test : /\.(js)$/,
+                exclude: /(node_modules|bower_components)/,
+                use:'babel-loader',
+            },
             {
                 test: /\.css$/,
                 use: [
@@ -29,7 +35,7 @@ module.exports = {
                             // you can specify a publicPath here
                             // by default it uses publicPath in webpackOptions.output
                             publicPath: '../',
-                            hmr: true, //process.env.NODE_ENV === 'development',
+                            hmr: true, // process.env.NODE_ENV === 'development',
                         },
                     },
                     'css-loader',
@@ -63,6 +69,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './app/index.html',
             filename: 'index.html'
+        }),
+        new ScriptExtHtmlWebpackPlugin({
+            defaultAttribute: 'defer'
         }),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
