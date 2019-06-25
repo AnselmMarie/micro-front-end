@@ -2,6 +2,8 @@
 import React, {Component} from "react";
 /* Components */
 import Header from '../../components/header';
+import ShopItems from './shop.items.component';
+/* JSON */
 import videoGames from '../../api/video.game/video.games.json';
 
 /**
@@ -13,23 +15,7 @@ import videoGames from '../../api/video.game/video.games.json';
 class Homepage extends Component {
 
     /**
-     * @class renderItem
-     * @desc renders each individual video game
-     * @author Anselm Marie
-     * @memberBy Homepage
-     * @param {object} el - single video game object
-     * @return {JSX.element}
-     */
-    renderItem = (el) => {
-        return (
-            <div key={el.id}>
-                <span>{el.name}</span>
-            </div>
-        );
-    };
-
-    /**
-     * @class Homepage
+     * @function render
      * @desc contains that renders the homepage
      * @author Anselm Marie
      * @memberBy Homepage
@@ -43,12 +29,10 @@ class Homepage extends Component {
                 <Header />
 
                 {videoGames && videoGames.length !== 0 &&
-                    <div data-testid="video-games-loaded" className="container-fluid video-game-container">
-                        {videoGames.map((el) => this.renderItem(el))}
-                    </div>}
+                    <ShopItems data={videoGames} columns={3} />}
 
                 {!videoGames || videoGames && videoGames.length === 0 &&
-                    <div data-testid="no-content" className="container-fluid no-content">
+                    <div data-testid="no-content" className="container no-content">
                         <span>No Content Exist</span>
                     </div>}
 
