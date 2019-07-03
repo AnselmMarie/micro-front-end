@@ -35,4 +35,12 @@ describe('<Homepage />', () => {
 
     });
 
+    test('3 column list', () => {
+
+    });
+
+    test('2 column list', () => {
+
+    });
+
 });

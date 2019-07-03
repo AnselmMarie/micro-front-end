@@ -1,5 +1,6 @@
 /* Node Modules */
 import React, {PureComponent} from 'react';
+import { Link } from "react-router-dom";
 
 /**
  * @class ShopItems
@@ -10,43 +11,6 @@ import React, {PureComponent} from 'react';
 class ShopItems extends PureComponent {
 
     /**
-     * @variable total
-     * @desc the total amount of the data given
-     * @author Anselm Marie
-     * @return {number}
-     */
-    total = null;
-
-    /**
-     * @variable currentTotal
-     * @desc the current number of rows rendered
-     * @author Anselm Marie
-     * @return {number}
-     */
-    currentTotal = null;
-
-    /**
-     * @variable nextRow
-     * @desc when the next row will be created
-     * @author Anselm Marie
-     * @return {number}
-     */
-    nextRow = null;
-
-    /**
-     * @variable resetData
-     * @desc reset the variable data
-     * @author Anselm Marie
-     * @return {number}
-     */
-    resetData = () => {
-        this.total = this.props.data.length;
-        this.currentTotal = 0;
-        this.nextRow = this.props.columns;
-    };
-
-
-    /**
      * @function renderItem
      * @desc renders each individual video game
      * @author Anselm Marie
@@ -55,19 +19,13 @@ class ShopItems extends PureComponent {
      * @return {JSX.element}
      */
     renderItem = (el, index) => {
-        // ii = ii + this.props.columns;
-        console.log('nextRow', this.nextRow);
-
-        if (index === 0) {
-            resetData();
-        }
-
-
+        const link = `/product/${el.id}`;
         return (
-            <div className="col shop-item" key={el.id}>
-                <div>Use Image - {el.thumbnail}</div>
-                <div>{el.name}</div>
+            <div className="col-sm-4 shop-item" key={el.id}>
+                <Link to={link}>Use Image - {el.thumbnail}</Link>
+                <Link to={link}>{el.name}</Link>
                 <div>{el.price}</div>
+                <div>Add to Cart</div>
             </div>
         );
     };

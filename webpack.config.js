@@ -12,6 +12,7 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: './app/screens/app/app.js',
     devServer: {
+        historyApiFallback: true,
         contentBase: './dist',
         compress: false,
     },
