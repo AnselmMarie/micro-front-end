@@ -9,5 +9,5 @@ const concat = require('concat');
     './dist/main.bundle.js',
   ];
 
-  await concat(files, 'child-react-element.js');
+  await concat(files, '../shell/public/child-react-element.js');
 })();

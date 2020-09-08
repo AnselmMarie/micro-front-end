@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 import AppComponent from './app.view';
 import retargetEvents from 'react-shadow-dom-retarget-events';
 
-(function () {
-  class ChildReact extends HTMLElement {
+(() => {
+  class ChildReactTwo extends HTMLElement {
     static get observedAttributes() {
       return ['state'];
     }
@@ -44,18 +44,32 @@ import retargetEvents from 'react-shadow-dom-retarget-events';
     }
 
     connectedCallback() {
-      console.log('Inside Child React connected callback');
+      console.log('Inside Child React Two connected callback');
       this.attachShadow({ mode: 'open' });
-      if (!this.shadowRoot) return;
+
       // eslint-disable-next-line import/no-webpack-loader-syntax
-      // const appCss = require('!to-string-loader!css-loader!./App.css');
+      const globalCss = require('!to-string-loader!css-loader!../../bootstrap.min.css');
+      // eslint-disable-next-line import/no-webpack-loader-syntax
+      const appCss = require('!to-string-loader!css-loader!./index.scss');
+      console.log('globalCss', globalCss);
+      console.log('appCss', appCss);
+      {/* if (!this.shadowRoot) return;
+      // eslint-disable-next-line import/no-webpack-loader-syntaxs
       // // eslint-disable-next-line import/no-webpack-loader-syntax
       // const detailsCss = require('!to-string-loader!css-loader!./Details.css');
       // <style>${appCss}</style>
-      // <style>${detailsCss}</style>
+      // <style>${detailsCss}</style> */}
+      //
       this.shadowRoot.innerHTML = `
-          <div id="root"></div>
+        <style>${globalCss}</style>
+        <style>${appCss}</style>
+        <div id="root"></div>
       `;
+
+      // const stylesheet = document.createElement('style');
+      // console.log('styles.toString()', styles.toString());
+      // stylesheet.innerHTML = styles.toString();
+      // this.shadowRoot.appendChild(stylesheet);
 
       this._mountPoint = this.shadowRoot.getElementById('root');
       this.onMessageReceived.bind(this);
@@ -64,7 +78,7 @@ import retargetEvents from 'react-shadow-dom-retarget-events';
     }
 
     disconnectedCallback() {
-      console.log('Custom square element removed from page.');
+      console.log('Child React Two disconnectedCallback');
     }
 
     onMessageReceived(message) {
@@ -79,5 +93,5 @@ import retargetEvents from 'react-shadow-dom-retarget-events';
     }
   }
 
-  customElements.define('child-react-element', ChildReact);
+  customElements.define('child-react--element-two', ChildReactTwo);
 })();

@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:bundle": "node build-elements.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "concat": "^1.0.3",
+    "fs-extra": "^9.0.0"
+  }
 }

@@ -6,6 +6,10 @@ class ImperativeCounter extends HTMLElement {
     this.update();
   }
 
+  disconnectedCallback() {
+    alert('ImperativeCounter removed from page.');
+  }
+
   update() {
     this.shadow.innerHTML = `<div><b>Count:</b> ${this.currentCount}</div>`;
   }

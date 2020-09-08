@@ -1,14 +1,13 @@
 import React from 'react';
 import CounterBox from '../counter.box/CounterBox';
+import { Link } from 'react-router-dom';
 
 class WebComponents extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 0,
-    };
-    this.counterElement = React.createRef();
-  }
+  state = {
+    count: 0,
+  };
+
+  counterElement = React.createRef();
 
   incrementCounters = () => {
     // increment the imperative counter
@@ -27,6 +26,11 @@ class WebComponents extends React.Component {
   render() {
     return (
       <>
+        <div style={{ marginBottom: 30 }}>
+          <span>Menu</span>
+          <p><Link to="/child-react">Child React</Link></p>
+          <p><Link to="/child-react-two">Child React 2</Link></p>
+        </div>
         <CounterBox>
           <h5>Imperative Counter</h5>
           <i-counter ref={this.counterElement}></i-counter>
