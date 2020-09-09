@@ -19,10 +19,6 @@ const DefaultRoute = (): JSX.Element => {
     // alert('on change');
   };
 
-  const blur = () => {
-    // alert('blur');
-  };
-
   const click = (e) => {
     console.log('e', e);
     e.preventDefault();
@@ -55,7 +51,7 @@ const DefaultRoute = (): JSX.Element => {
 
       <div ref={eventOne}>Hi</div>
       <div onClick={click}>Click me</div>
-      <input ref={eventTwo} onBlur={blur} placeholder="fdasfasf" />
+      <input ref={eventTwo} placeholder="fdasfasf" />
       <input onChange={change} placeholder="fdasfasf" />
     </>
   );
